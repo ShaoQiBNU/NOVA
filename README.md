@@ -81,27 +81,27 @@
 
 - addition
 
-![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/11.jpg)
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/12.jpg)
 
 - concat
 
-![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/12.jpg)
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/13.jpg)
 
 - gating
 
-![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/13.jpg)
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/14.jpg)
 
-###  **NOVA-BERT**
+###  NOVA-BERT
 
 > 每个NOVA层接受两个输入：side信息和item表示序列，然后输出相同的更新表示，再将这些表示输送送到下一层。对于第一层的输入，商品表示是纯item ID嵌入。由于只使用side信息作为辅助来学习更好的注意分布，side信息不会随着NOVA层传播，为每个NOVA层提供相同的side信息集。
 
-![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/14.jpg)
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/15.jpg)
 
 ## 实验结果
 
 ### 效果比较
 
-![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/15.jpg)
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/16.jpg)
 
 > - NOVA-BERT的效果比其它的都要好；
 > - 与Bert4Rec仅利用位置ID相比，invasive式方法使用了多种side信息，但改进非常有限甚至没有正向效果。相反，NOVA-BERT方法能有效地利用side信息，性能稳定，优于其他方法。
@@ -111,7 +111,7 @@
 
 ### 不同side信息的贡献
 
-![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/16.jpg)
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/17.jpg)
 
 > - None：是原始的Bert+position ID；
 > - 商品相关和行为相关的side信息并未带来准确率的明显提升；
@@ -120,7 +120,7 @@
 
 ### Attention可视化分布
 
-![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/17.jpg)
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/18.jpg)
 
 > - NOVA-BERT的注意力得分在局部性方面表现出更强的模式，大致集中在对角线上。另一方面，在基线模型的图中没有观察到。对整个数据集的观察，这种对比是普遍存在的。side信息导致模型在早期层次形成更明显的attention。
 > - 实验结果表明，NOVA-BERT算法以side信息作为计算attention矩阵的辅助工具，可以学习目标的注意分布，从而提高计算的准确性。
