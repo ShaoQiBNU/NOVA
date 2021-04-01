@@ -28,6 +28,8 @@
 
 ![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/2.jpg)
 
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/3.jpg)
+
 ### side information
 
 > side信息是为推荐系统提供额外有效的信息，可以分为两种类型：商品相关信息或行为相关信息。
@@ -37,13 +39,13 @@
 >
 > 加入side信息后，用户的历史交互行为可表示为：
 
-![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/3.jpg)
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/5.jpg)
 
 ### BERT and Invasive Self-attention
 
 > BERT4Rec是第一次将BERT框架用于序列化推荐任务的，并且取得了SOTA的效果。在BERT4Rec中，Item表示为向量，一些商品被随机mask掉，训练中采用multi-head self-attention机制recover这些商品向量：
 
-![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/4.jpg)
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/5.jpg)
 
 > 为了更好地利用side信息，传统方法经常会使用分开的embedding层来将side信息进行编码，然后将它们fuse到item ID的embedding中，融合的方法主要有：
 >
@@ -53,17 +55,17 @@
 >
 > 此类方法为Invasive的方法，因为它们改变了item原始的embedding表示。
 
-![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/5.jpg)
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/6.jpg)
 
 > 之后叠加self-attention机制不断更新表示层
 
-![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/6.jpg)
-
 ![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/7.jpg)
+
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/8.jpg)
 
 > self-attention操作是位置不变的函数，所以此处将位置embedding编码加入其中，BERT4Rec仅仅是将位置信息作为了side信息，并且使用addition作为fusion函数。
 
-![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/8.jpg)
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/9.jpg)
 
 ### Non-invasive Self-attention(NOVA)
 
@@ -71,9 +73,9 @@
 >
 > - 修改自注意机制，仔细控制信息源，即Q、K和V
 
-![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/9.jpg)
-
 ![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/10.jpg)
+
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/11.jpg)
 
 ### Fusion Operations
 
