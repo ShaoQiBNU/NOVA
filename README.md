@@ -18,7 +18,7 @@
 > 2. 提出了非侵入（non-invasive）的self-attention机制（NOVA），这是一种新的设计，可以实现对复合序列数据的self-attention；
 > 3. 基于可视化给出了模型的可解释性。
 
-Img1
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/1.png)
 
 ## 模型结构
 
@@ -26,7 +26,7 @@ Img1
 
 > 给定一个用户的历史交互行为，序列推荐要求预测用户下一个交互的商品或行为，可以表示为：
 
-img2
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/2.jpg)
 
 ### side information
 
@@ -37,13 +37,13 @@ img2
 >
 > 加入side信息后，用户的历史交互行为可表示为：
 
-img3
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/3.jpg)
 
 ### BERT and Invasive Self-attention
 
 > BERT4Rec是第一次将BERT框架用于序列化推荐任务的，并且取得了SOTA的效果。在BERT4Rec中，Item表示为向量，一些商品被随机mask掉，训练中采用multi-head self-attention机制recover这些商品向量：
 
-img
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/4.jpg)
 
 > 为了更好地利用side信息，传统方法经常会使用分开的embedding层来将side信息进行编码，然后将它们fuse到item ID的embedding中，融合的方法主要有：
 >
@@ -53,13 +53,17 @@ img
 >
 > 此类方法为Invasive的方法，因为它们改变了item原始的embedding表示。
 
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/5.jpg)
+
 > 之后叠加self-attention机制不断更新表示层
 
-img
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/6.jpg)
+
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/7.jpg)
 
 > self-attention操作是位置不变的函数，所以此处将位置embedding编码加入其中，BERT4Rec仅仅是将位置信息作为了side信息，并且使用addition作为fusion函数。
 
-img
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/8.jpg)
 
 ### Non-invasive Self-attention(NOVA)
 
@@ -67,9 +71,9 @@ img
 >
 > - 修改自注意机制，仔细控制信息源，即Q、K和V
 
-img
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/9.jpg)
 
-img
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/10.jpg)
 
 ### Fusion Operations
 
@@ -77,27 +81,27 @@ img
 
 - addition
 
-  img
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/11.jpg)
 
 - concat
 
-  
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/12.jpg)
 
 - gating
 
-
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/13.jpg)
 
 ###  **NOVA-BERT**
 
 > 每个NOVA层接受两个输入：side信息和item表示序列，然后输出相同的更新表示，再将这些表示输送送到下一层。对于第一层的输入，商品表示是纯item ID嵌入。由于只使用side信息作为辅助来学习更好的注意分布，side信息不会随着NOVA层传播，为每个NOVA层提供相同的side信息集。
 
-img
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/14.jpg)
 
 ## 实验结果
 
 ### 效果比较
 
-img
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/15.jpg)
 
 > - NOVA-BERT的效果比其它的都要好；
 > - 与Bert4Rec仅利用位置ID相比，invasive式方法使用了多种side信息，但改进非常有限甚至没有正向效果。相反，NOVA-BERT方法能有效地利用side信息，性能稳定，优于其他方法。
@@ -107,7 +111,7 @@ img
 
 ### 不同side信息的贡献
 
-img
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/16.jpg)
 
 > - None：是原始的Bert+position ID；
 > - 商品相关和行为相关的side信息并未带来准确率的明显提升；
@@ -116,7 +120,7 @@ img
 
 ### Attention可视化分布
 
-Img
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/17.jpg)
 
 > - NOVA-BERT的注意力得分在局部性方面表现出更强的模式，大致集中在对角线上。另一方面，在基线模型的图中没有观察到。对整个数据集的观察，这种对比是普遍存在的。side信息导致模型在早期层次形成更明显的attention。
 > - 实验结果表明，NOVA-BERT算法以side信息作为计算attention矩阵的辅助工具，可以学习目标的注意分布，从而提高计算的准确性。
