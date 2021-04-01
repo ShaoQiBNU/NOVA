@@ -57,9 +57,9 @@
 
 ![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/6.jpg)
 
-> 之后叠加self-attention机制不断更新表示层
-
 ![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/7.jpg)
+
+> 之后叠加self-attention机制不断更新表示层
 
 ![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/8.jpg)
 
