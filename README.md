@@ -39,7 +39,7 @@
 >
 > 加入side信息后，用户的历史交互行为可表示为：
 
-![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/5.jpg)
+![image](https://github.com/ShaoQiBNU/NOVA/blob/main/img/4.jpg)
 
 ### BERT and Invasive Self-attention
 
